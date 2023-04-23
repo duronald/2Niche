@@ -9,6 +9,25 @@ Session(app)
 
 @app.route('/')
 def home():
+
+    session['username'] = 'John'
+    return render_template('home.html', username=session['username'])
+
+@app.route('/entryForm/')
+def entryForm():
+
+    return render_template('entryForm.html', username=session['username'])
+
+from flask import request
+
+@app.route('/third/', methods=["POST"])
+def third():
+    searchbox = request.form["searchbox"]
+    rating= request.form["customRange2"]
+    radius = request.form["customRange3"]
+    print(searchbox)
+    print(rating)
+    print(radius)
     # Python program to get a set of 
     # places according to your search 
     # query using Google Places API
@@ -37,7 +56,7 @@ def home():
     #                         '&key=' + api_key)
 
     #apirest = url + 'query=' + query + '&key=' + api_key
-    apirest = url + 'location=' + location + "&radius=1500" + '&key=' + api_key
+    apirest = url + "keyword=" + str(searchbox) + '&location=' + location + "&radius=" + str(radius) + '&key=' + api_key
     apirestPhoto = urlPhoto + 'maxwidth=400' + '&photo_reference=' 
 
     #for i in range(100):
@@ -60,12 +79,15 @@ def home():
           
         # Print value corresponding to the
         # 'name' key at the ith index of y
-        print(y[i]['name'])
-        try:
-            print(y[i]['user_ratings_total'])
-            dictOfReviews[y[i]['name']] = [y[i]['user_ratings_total'], y[i]['rating'], y[i]['photos'][0]['photo_reference'], apirestPhoto + y[i]['photos'][0]['photo_reference'] + '&key=' + api_key, y[i]['plus_code']['compound_code'], str(y[i]['photos'][0]['html_attributions'][0][9:]).split('"', 1)[0]]  
-        except:
-            print("something happened!")
+        if(y[i]['rating'] < float(rating)):
+            print("lol this place sucks")
+        else:
+            print(y[i]['name'])
+            try:
+                print(y[i]['user_ratings_total'])
+                dictOfReviews[y[i]['name']] = [y[i]['user_ratings_total'], y[i]['rating'], y[i]['photos'][0]['photo_reference'], apirestPhoto + y[i]['photos'][0]['photo_reference'] + '&key=' + api_key, y[i]['plus_code']['compound_code'], str(y[i]['photos'][0]['html_attributions'][0][9:]).split('"', 1)[0]]  
+            except:
+                print("something happened!")
     sortedDictofReviews = sorted(dictOfReviews.items(), key=lambda x:x[1])
     print(sortedDictofReviews)
 
@@ -79,8 +101,8 @@ def home():
 
     print("\n\n\n\n\n")
     #print(sortedDictofReviews[1][1][5][0][9:].split('"', 1)[0])
-    print(stripSortDictOfReviews[1])
-    return render_template('home.html', locations=stripSortDictOfReviews, username=session['username'])
+    #print(stripSortDictOfReviews[1])
+    return render_template('third.html', locations=stripSortDictOfReviews, username=session['username'])
 
 if __name__ == '__main__':
     app.run(debug=True)
