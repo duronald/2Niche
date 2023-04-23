@@ -1,0 +1,14 @@
+.navbar-brand {
+    text-decoration: underline;
+    font-family: Monospace, Courier
+}
+
+.navbar img {
+    height: 40px; /* change the value as needed */
+  }
+  
+  nav li {
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+  }

@@ -3,79 +3,80 @@
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-        <link href="style.css" rel="stylesheet">
-        <title>NICHE</title>
+        <link href="/static/style.css" rel="stylesheet">
+        <title>2NICHE</title>
     </head>
-    <body style="background-color: #F1E9E4">
-      <!-- background color imbedded in here rather than css-->
-        <nav class="navbar navbar-light sticky-top" style="background-color: #5F6B5D;"> <!-- background color imbedded in here rather than css-->
-            <div class="container-fluid">
-              <img src="logo.png" alt="Niche Logo">
-              <a class="navbar-brand" href="#">NICHE</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">NICHE Guide</h5>
-                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                      </a>
-                      <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                          <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </nav>
-          <header style="background-color: #825013;">
+    <body style="background-color: #F1E9E4"> <!-- background color imbedded in here rather than css-->
+      <nav class="navbar sticky-top navbar-dark" style="background-color: #a3a869;">
+        <div class="container-fluid text-center">
+          <!--style>
+            div.text-center {
+              background-image: url('lol4.png');
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              background-size: cover;
+            }
+          </style-->
+          <img src="logo.png" alt="House Roots Coffee Logo">
+          <button id="status" type="button" class="btn btn-lg btn-primary btn-sm btn-success" disabled>Primary button</button>
+          <!-- Identifies if the store is open or closed, changing the text and class for the button accordingly to the business hours-->
+          <script>
+            // Identify the attribute it'd affect
+            const statusBtn = document.getElementById("status");
+
+            // Get current day and time
+            const now = new Date();
+            const dayOfWeek = now.getDay();
+            const hour = now.getHours();
+
+            // Check if it's open or closed
+            if ((dayOfWeek >= 1 && dayOfWeek <= 6 && hour >= 7 && hour < 19) || (dayOfWeek === 0 && hour >= 13 && hour < 19)) {
+              statusBtn.innerText = "Open";
+              statusBtn.classList.remove("btn-danger");
+              statusBtn.classList.add("btn-success");
+            } else {
+              statusBtn.innerText = "Closed";
+              statusBtn.classList.remove("btn-success");
+              statusBtn.classList.add("btn-danger");
+            }
+          </script>
+          <b><a id="brand" onclick="scrollToTop()" href="#top">House Roots Coffee</a></b>
+          <ul id="nav" class="navbar-brand">
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+          <header style="background-color: #9e5527"">
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="mels.png" class="d-block w-100" alt="...">
+                  <img src="/static/back.png" class="d-block w-100" alt="0">
                 </div>
                 <div class="carousel-item">
-                  <img src="scene.png" class="d-block w-100" alt="...">
+                  <img src="/static/back2.png" class="d-block w-100" alt="1">
                 </div>
                 <div class="carousel-item">
-                  <img src="..." class="d-block w-100" alt="...">
+                  <img src="/static/back3.png" class="d-block w-100" alt="2">
+                </div>
+                <div class="carousel-item">
+                  <img src="/static/back4.png" class="d-block w-100" alt="3">
                 </div>
               </div>
-              <style>
-                /* adjust the size of the images */
-                .carousel-item img {
-                  max-width: 50%; /* or any other value that fits your needs */
-                  height: auto;
-                  margin: 2px;
-                }
-
-                /* position the images to the right side of the screen */
-                .carousel-item img {
-                  float: right;
-                }
-              </style>
             </div>
-        </header>
+            <style>
+              /* adjust the size of the images */
+              .carousel-item img {
+                max-width: 50%; /* or any other value that fits your needs */
+                height: auto;
+                float: right;
+                width: 500px;
+                height: 500px;
+                height: auto;
+                object-fit: cover;
+              }
+            </style>
+          </header>
     </body>
