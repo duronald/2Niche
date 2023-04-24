@@ -17,14 +17,66 @@
   <body style="background-color: #F1E9E4"> <!-- background color imbedded in here rather than css-->
     <nav class="navbar sticky-top navbar-dark" style="background-color: #a3a869;">
       <div class="container-fluid text-center">
-        <img src="logo.png" alt="Logo">
         <b><a id="brand" onclick="scrollToTop()" href="#top">2NICHE</a></b>
+        <style>
+          .navbar-brand {
+  text-decoration-style: dashed;
+  font-family: Monospace, Courier;
+}
+
+.navbar img {
+  height: 40px; /* change the value as needed */
+}
+  
+nav li {
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+}
+
+#brand {
+  margin-left: 210px;
+  font-family: Monospace, Lucida;
+  color: white;
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+nav.navbar img {
+  max-width: 100%;
+  height: 80px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+#nav {
+  margin-top: 15px;
+  font-size: 10px;
+  margin-left: 10px;
+}
+
+a {
+  margin-left: 20px;
+  font-size: 20px;
+  transition: all 0.4s ease-in-out; /* Add smooth transition */
+}
+
+a:hover {
+  font-size: 20.25px; /* Adjust font size during hover */
+  color: #76524b;
+  text-decoration: underline;
+}
+        </style>
         <script>
     function scrollToTop() {
       jQuery('html, body').animate({ scrollTop: 0 }, 'slow');
     }
   </script>
         <ul id="nav" class="navbar-brand">
+          <li class="active"><a href="/entryForm/" style = "padding-left: 0pt;">ENTRY FORM</a></li>
           <li><a href="#about">_About_</a></li>
           <li><a href="#menu">_Overview_</a></li>
         </ul>
@@ -48,78 +100,7 @@
       </div>
     </div>
   {% endfor %}
-      <!-- background color imbedded in here rather than css-->
-        <nav class="navbar navbar-light sticky-top" style="background-color: #5F6B5D;"> <!-- background color imbedded in here rather than css-->
-            <div class="container-fluid">
-              <img src="logo.png" alt="Niche Logo">
-              <a class="navbar-brand" href="#">NICHE</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">NICHE Guide</h5>
-                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                      </a>
-                      <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                          <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </nav>
-          <header style="background-color: #825013;">
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="mels.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                  <img src="scene.png" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                  <img src="..." class="d-block w-100" alt="...">
-                </div>
-              </div>
-              <style>
-                /* adjust the size of the images */
-                .carousel-item img {
-                  max-width: 50%; /* or any other value that fits your needs */
-                  height: auto;
-                  margin: 2px;
-                }
-
-                /* position the images to the right side of the screen */
-                .carousel-item img {
-                  float: right;
-                }
-              </style>
-            </div>
-        </header>
-    </body>
+     
 
 
     <style>

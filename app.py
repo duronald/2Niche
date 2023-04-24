@@ -57,6 +57,8 @@ def third():
 
     #apirest = url + 'query=' + query + '&key=' + api_key
     apirest = url + "keyword=" + str(searchbox) + '&location=' + location + "&radius=" + str(radius) + '&key=' + api_key
+    if (str(searchbox) == ""):
+        apirest = url + 'location=' + location + "&radius=" + str(radius) + '&key=' + api_key
     apirestPhoto = urlPhoto + 'maxwidth=400' + '&photo_reference=' 
 
     #for i in range(100):
@@ -79,6 +81,7 @@ def third():
           
         # Print value corresponding to the
         # 'name' key at the ith index of y
+
         if(y[i]['rating'] < float(rating)):
             print("lol this place sucks")
         else:
@@ -88,14 +91,19 @@ def third():
                 dictOfReviews[y[i]['name']] = [y[i]['user_ratings_total'], y[i]['rating'], y[i]['photos'][0]['photo_reference'], apirestPhoto + y[i]['photos'][0]['photo_reference'] + '&key=' + api_key, y[i]['plus_code']['compound_code'], str(y[i]['photos'][0]['html_attributions'][0][9:]).split('"', 1)[0]]  
             except:
                 print("something happened!")
+
     sortedDictofReviews = sorted(dictOfReviews.items(), key=lambda x:x[1])
     print(sortedDictofReviews)
 
     #print(len(sortedDictofReviews))
     stripSortDictOfReviews = sortedDictofReviews
+    
     for i in range((math.ceil(len(sortedDictofReviews) / 5))*3):
         #print(len())
-        stripSortDictOfReviews.pop()
+        try:
+            stripSortDictOfReviews.pop()
+        except:
+            print("something happened when popping ")
 
     session['username'] = 'John'
 
