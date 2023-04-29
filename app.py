@@ -36,8 +36,8 @@ def third():
     
       
     # enter your api key here
-    #api_key = 'AIzaSyD2JJs3Cdwy0imhviCwk1NXsGpmEzBbmCE'
-    api_key = 'AIzaSyA5Yd1uHgI-__Gkz4gD9dN8hVbdVhuLacw'
+    #api_key = ''
+    api_key = ''
     # url variable store url
     #url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
